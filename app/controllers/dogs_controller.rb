@@ -40,7 +40,7 @@ class DogsController < ApplicationController
   # POST /dogs
   # POST /dogs.json
   def create
-    @dog = Dog.new(params[:dog])
+    @dog = current_owner.dogs.new(params[:dog])
 
     respond_to do |format|
       if @dog.save
