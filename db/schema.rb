@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708203646) do
+ActiveRecord::Schema.define(:version => 20130708225843) do
+
+  create_table "dogs", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "breed"
+    t.integer  "owner_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "dogs", ["owner_id"], :name => "index_dogs_on_owner_id"
 
   create_table "owners", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
