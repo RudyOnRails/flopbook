@@ -1,4 +1,7 @@
 class DogsController < ApplicationController
+
+  before_filter :authenticate_owner!
+
   # GET /dogs
   # GET /dogs.json
   def index
